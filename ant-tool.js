@@ -1,5 +1,6 @@
 const canvas = document.getElementById('canvas');
 const context = canvas.getContext('2d');
+
 document.addEventListener('DOMContentLoaded', () => {
     
     // Handle drag over event for the canvas
@@ -30,15 +31,18 @@ document.addEventListener('DOMContentLoaded', () => {
                     const image = new Image();
                     image.src = e.target.result;
                     
-                    // Get the drop coordinates relative to the canvas
-                    const rect = canvas.getBoundingClientRect();
-                    const x = event.clientX - rect.left;
-                    const y = event.clientY - rect.top;
+                    image.onload = (e) => {
+                        // Get the drop coordinates relative to the canvas
+                        // const rect = canvas.getBoundingClientRect();
+                        // const x = event.clientX - rect.left;
+                        // const y = event.clientY - rect.top;
 
-                    // Draw the image at the drop coordinates on the canvas
-                    context.drawImage(image, x, y);
+                        // Draw the image at the drop coordinates on the canvas
+                        context.drawImage(image, 0, 0);
+                    };
                 };
             }
         }
     });
 });
+
