@@ -28,6 +28,8 @@
 }
 
 .panel-left {
+  display: block;
+  padding: 40px 50px;
   width: 20%;
   height: 100%;
   border-right: 1px solid gray;
@@ -90,4 +92,10 @@
 
 #refresh:hover {
   cursor: pointer;
+}
+
+.panel-left li{
+  list-style-type: none;
+  
+  font-size: 20px;
 }

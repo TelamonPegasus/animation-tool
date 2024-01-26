@@ -9,6 +9,7 @@ let initialY, lastY = 0;
 let image = null;
 let scale = 1;
 let rotation = 0;
+let components = [];
 
 document.addEventListener('DOMContentLoaded', () => {
   // Handle drag over event for the canvas
@@ -42,7 +43,16 @@ document.addEventListener('DOMContentLoaded', () => {
           image.onload = (e) => {
             const componentName = parseFloat(prompt('Enter component name:'));
             if (componentName) {
-                alert(componentName);
+                const component = {
+                    name: componentName,
+                    image: image,
+                    x: 0,
+                    y: 0
+                };
+                components.push(component);
+                console.log(components[components.length-1].name);
+                displayLeftPanel();
+                // updateComponentList();
             }    
 
             // Get the drop coordinates relative to the canvas
@@ -55,6 +65,8 @@ document.addEventListener('DOMContentLoaded', () => {
             context.drawImage(image, 0, 0);
           };
         };
+      } else {
+        alert("Please insert image.");
       }
     }
   });
@@ -98,6 +110,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Functions
 
+function displayLeftPanel() {
+  const comPanel = document.getElementById('panel-left');
+  const listItem = document.createElement('li');
+  
+  listItem.textContent = components[components.length-1].name;
+  comPanel.appendChild(listItem);
+}
+
 function rotateImage(rotationValue) {
   rotation += rotationValue;
   drawImageWithTransform();
@@ -140,3 +160,4 @@ function dragImage(event) {
 function stopDragging() {
   draggedImage = null;
 }
+
