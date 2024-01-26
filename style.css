@@ -77,4 +77,17 @@
 
 #tool-icon img:hover {
   cursor: pointer;
+  background-color: #2196F3;
+
+}
+
+#refresh {
+  position: absolute;
+  width: 30px;
+  top: 15px;
+  left: 95%;
+}
+
+#refresh:hover {
+  cursor: pointer;
 }

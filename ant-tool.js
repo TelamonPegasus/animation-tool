@@ -84,6 +84,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  const refreshButton = document.getElementById('refresh');
+  refreshButton.addEventListener('click', () => {
+    drawImageWithTransform();
+  });
+
 });
 
 function rotateImage(rotationValue) {
@@ -99,7 +104,7 @@ function scaleImage(scaling) {
 function drawImageWithTransform() {
   context.clearRect(0, 0, canvas.width, canvas.height);
   context.save();
-  context.translate(canvas.width / 2, canvas.height / 2);
+  context.translate(image.width / 2, image.height / 2);
   context.rotate((rotation * Math.PI) / 180);
   context.scale(scale, scale);
   context.drawImage(image, -image.width / 2, -image.height / 2);
