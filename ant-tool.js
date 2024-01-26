@@ -40,6 +40,11 @@ document.addEventListener('DOMContentLoaded', () => {
           image.src = e.target.result;
 
           image.onload = (e) => {
+            const componentName = parseFloat(prompt('Enter component name:'));
+            if (componentName) {
+                alert(componentName);
+            }    
+
             // Get the drop coordinates relative to the canvas
             // const rect = canvas.getBoundingClientRect();
             // const x = event.clientX - rect.left;
@@ -90,6 +95,8 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
 });
+
+// Functions
 
 function rotateImage(rotationValue) {
   rotation += rotationValue;
