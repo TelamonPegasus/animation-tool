@@ -29,7 +29,6 @@
 
 .panel-left {
   display: block;
-  padding: 40px 50px;
   width: 20%;
   height: 100%;
   border-right: 1px solid gray;
@@ -46,7 +45,6 @@
 
 .foot-keys {
   display: flex;
-  gap: 50px;
   height: 100%;
   overflow: auto;
 }
@@ -94,8 +92,19 @@
   cursor: pointer;
 }
 
+#panel-left {
+  width: 100%;
+  height: 100%;
+}
+
 .panel-left li{
   list-style-type: none;
-  
   font-size: 20px;
+}
+
+#thumbnails>img{
+  padding: 16px;
+  margin: 8px;
+  border-radius: 8px;
+  border: 1px dotted #888;
 }
